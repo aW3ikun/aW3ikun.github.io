@@ -16,21 +16,21 @@
 <meta property="og:site_name" content="偽のブログ">
 <meta property="og:description" content="https://bbs.pediy.com/thread-129526.htm      之前没有细致去了解，只了解简单的一些方便，遇到混淆还是有些畏难。所以好好的学习一下。需要了解一定的opcode。 opcode查询 http://ref.x86asm.net/coder32.html。 只能说加密与解密里是简单带过，略读一下就行。着重看下这个文章。 算是一篇摘抄总结文与简单实践。 花指令分">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://blog.noobwei.top/assets/2021-08-16-花指令学习/image-20210816152556563.png">
-<meta property="og:image" content="http://blog.noobwei.top/assets/2021-08-16-花指令学习/image-20210816152649559.png">
-<meta property="og:image" content="http://blog.noobwei.top/assets/2021-08-16-花指令学习/image-20210816152740354.png">
-<meta property="og:image" content="http://blog.noobwei.top/assets/2021-08-16-花指令学习/image-20210816155420108.png">
-<meta property="og:image" content="http://blog.noobwei.top/assets/2021-08-16-花指令学习/image-20210816160205087.png">
-<meta property="og:image" content="http://blog.noobwei.top/assets/2021-08-16-花指令学习/image-20210816161933524.png">
-<meta property="og:image" content="http://blog.noobwei.top/assets/2021-08-16-花指令学习/image-20210816161656837.png">
-<meta property="og:image" content="http://blog.noobwei.top/assets/2021-08-16-花指令学习/image-20210816163021204.png">
-<meta property="og:image" content="http://blog.noobwei.top/assets/2021-08-16-花指令学习/image-20210816163136637.png">
-<meta property="og:image" content="http://blog.noobwei.top/assets/2021-08-16-花指令学习/image-20210816163220837.png">
-<meta property="og:updated_time" content="2021-08-16T16:36:23.107Z">
+<meta property="og:image" content="http://blog.noobwei.top/assets/blog/2021-08-16-花指令学习/image-20210816152556563.png">
+<meta property="og:image" content="http://blog.noobwei.top/assets/blog/2021-08-16-花指令学习/image-20210816152649559.png">
+<meta property="og:image" content="http://blog.noobwei.top/assets/blog/2021-08-16-花指令学习/image-20210816152740354.png">
+<meta property="og:image" content="http://blog.noobwei.top/assets/blog/2021-08-16-花指令学习/image-20210816155420108.png">
+<meta property="og:image" content="http://blog.noobwei.top/assets/blog/2021-08-16-花指令学习/image-20210816160205087.png">
+<meta property="og:image" content="http://blog.noobwei.top/assets/blog/2021-08-16-花指令学习/image-20210816161933524.png">
+<meta property="og:image" content="http://blog.noobwei.top/assets/blog/2021-08-16-花指令学习/image-20210816161656837.png">
+<meta property="og:image" content="http://blog.noobwei.top/assets/blog/2021-08-16-花指令学习/image-20210816163021204.png">
+<meta property="og:image" content="http://blog.noobwei.top/assets/blog/2021-08-16-花指令学习/image-20210816163136637.png">
+<meta property="og:image" content="http://blog.noobwei.top/assets/blog/2021-08-16-花指令学习/image-20210816163220837.png">
+<meta property="og:updated_time" content="2021-08-17T01:33:15.539Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2021-08-16-花指令学习">
 <meta name="twitter:description" content="https://bbs.pediy.com/thread-129526.htm      之前没有细致去了解，只了解简单的一些方便，遇到混淆还是有些畏难。所以好好的学习一下。需要了解一定的opcode。 opcode查询 http://ref.x86asm.net/coder32.html。 只能说加密与解密里是简单带过，略读一下就行。着重看下这个文章。 算是一篇摘抄总结文与简单实践。 花指令分">
-<meta name="twitter:image" content="http://blog.noobwei.top/assets/2021-08-16-花指令学习/image-20210816152556563.png">
+<meta name="twitter:image" content="http://blog.noobwei.top/assets/blog/2021-08-16-花指令学习/image-20210816152556563.png">
   
     <link rel="alternative" href="/atom.xml" title="偽のブログ" type="application/atom+xml">
   
@@ -93,7 +93,7 @@
 				
 					<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 		        
-					<a class="mail" target="_blank" href="mailto:awei_sec@protonmail.com" title="mail"><i class="icon-mail"></i></a>
+					<a class="mail" target="_blank" href="mailto:awei_job_sec@outlook.com" title="mail"><i class="icon-mail"></i></a>
 		        
 			</div>
 		</nav>
@@ -130,7 +130,7 @@
 					
 						<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 			        
-						<a class="mail" target="_blank" href="mailto:awei_sec@protonmail.com" title="mail"><i class="icon-mail"></i></a>
+						<a class="mail" target="_blank" href="mailto:awei_job_sec@outlook.com" title="mail"><i class="icon-mail"></i></a>
 			        
 				</div>
 			</nav>
@@ -210,16 +210,16 @@
 </li>
 </ol>
 <h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="简单不可执行花指令"><a href="#简单不可执行花指令" class="headerlink" title="简单不可执行花指令"></a><strong>简单不可执行花指令</strong></h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	__asm &#123;</span><br><span class="line">		<span class="comment">//简单不可执行花指令</span></span><br><span class="line">		jmp Lable1</span><br><span class="line">		__emit <span class="number">0x8</span></span><br><span class="line">		<span class="comment">//0xEa</span></span><br><span class="line">		<span class="comment">//0xeB</span></span><br><span class="line">		<span class="comment">//0xec</span></span><br><span class="line">	&#125;</span><br><span class="line">Lable1:</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Hello World!\n"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/assets/2021-08-16-花指令学习/image-20210816152556563.png" alt="image-20210816152556563"></p>
+<p><img src="/assets/blog/2021-08-16-花指令学习/image-20210816152556563.png" alt="image-20210816152556563"></p>
 <p>已经混淆，人眼发现下一步还是跳转。</p>
-<p><img src="/assets/2021-08-16-花指令学习/image-20210816152649559.png" alt="image-20210816152649559"></p>
+<p><img src="/assets/blog/2021-08-16-花指令学习/image-20210816152649559.png" alt="image-20210816152649559"></p>
 <p>执行一步后，如下，解析正常。</p>
-<p><img src="/assets/2021-08-16-花指令学习/image-20210816152740354.png" alt="image-20210816152740354"></p>
+<p><img src="/assets/blog/2021-08-16-花指令学习/image-20210816152740354.png" alt="image-20210816152740354"></p>
 <h3 id="稍复杂的花指令"><a href="#稍复杂的花指令" class="headerlink" title="稍复杂的花指令"></a><strong>稍复杂的花指令</strong></h3><h4 id="多节跳转"><a href="#多节跳转" class="headerlink" title="多节跳转"></a>多节跳转</h4><p>使用多重嵌套能混淆更多的指令。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	__asm &#123;</span><br><span class="line">		//多节花指令</span><br><span class="line">		jmp Lable2</span><br><span class="line">		__emit 0xe8</span><br><span class="line">		__emit 0x41</span><br><span class="line">		Lable2:</span><br><span class="line">		push eax</span><br><span class="line">		mov eax,1</span><br><span class="line">		pop ebx</span><br><span class="line">		mov eax,ebx</span><br><span class="line">		jmp Lable1</span><br><span class="line">		__emit 0xe9</span><br><span class="line">	&#125;</span><br><span class="line">Lable1:</span><br><span class="line">    std::cout &lt;&lt; &quot;Hello World!\n&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/assets/2021-08-16-花指令学习/image-20210816155420108.png" alt="image-20210816155420108"></p>
+<p><img src="/assets/blog/2021-08-16-花指令学习/image-20210816155420108.png" alt="image-20210816155420108"></p>
 <h4 id="多层乱序嵌套"><a href="#多层乱序嵌套" class="headerlink" title="多层乱序嵌套"></a>多层乱序嵌套</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	__asm &#123;</span><br><span class="line">		jmp Lable1</span><br><span class="line">		__emit <span class="number">0xe8</span></span><br><span class="line">		__emit <span class="number">0x41</span></span><br><span class="line">Lable2:</span><br><span class="line">		xor eax,eax</span><br><span class="line">		jnz Lable1</span><br><span class="line">		jz Lable3</span><br><span class="line">		__emit <span class="number">0x76</span></span><br><span class="line">		__emit <span class="number">0x7c</span></span><br><span class="line">Lable1:</span><br><span class="line">		mov eax,<span class="number">0xe8e9ece8</span></span><br><span class="line">		jmp Lable2</span><br><span class="line">		__emit <span class="number">0x75</span></span><br><span class="line">	&#125;</span><br><span class="line">Lable3:</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Hello World!\n"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/assets/2021-08-16-花指令学习/image-20210816160205087.png" alt="image-20210816160205087"></p>
+<p><img src="/assets/blog/2021-08-16-花指令学习/image-20210816160205087.png" alt="image-20210816160205087"></p>
 <h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>jmp/call/ret+垃圾数据，非常容易被识别。可以说几乎没有什么作用。</p>
 <p>放到x32dbg中虽有混淆，但意图明显，很容易过滤掉。</p>
 <p>ida中直接被过滤。</p>
@@ -231,19 +231,19 @@
 <p>①采用新的固定结构，许多插件还没有检测，比如下文提到的xor-cmp的结构。<br>②非固定结构的“伪条件跳转”替代“强制跳转”</p>
 </blockquote>
 <h3 id="使用互补条件跳转"><a href="#使用互补条件跳转" class="headerlink" title="使用互补条件跳转"></a>使用互补条件跳转</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	__asm &#123;</span><br><span class="line">		cmp eax,ebx</span><br><span class="line">		jge Lable2</span><br><span class="line">		jle Lable2</span><br><span class="line">		__emit <span class="number">0xe8</span></span><br><span class="line">		__emit <span class="number">0x41</span></span><br><span class="line">Lable2:</span><br><span class="line">		mov eax,<span class="number">2</span></span><br><span class="line">		cmp eax,esp</span><br><span class="line">		jnz Lable3</span><br><span class="line">		jz Lable3</span><br><span class="line">	&#125;</span><br><span class="line">Lable3:</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Hello World!\n"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/assets/2021-08-16-花指令学习/image-20210816161933524.png" alt="image-20210816161933524"></p>
+<p><img src="/assets/blog/2021-08-16-花指令学习/image-20210816161933524.png" alt="image-20210816161933524"></p>
 <p>IDA混淆效果显著。</p>
-<p><img src="/assets/2021-08-16-花指令学习/image-20210816161656837.png" alt="image-20210816161656837"></p>
+<p><img src="/assets/blog/2021-08-16-花指令学习/image-20210816161656837.png" alt="image-20210816161656837"></p>
 <h3 id="改进版—用随机值获得确定性标志位"><a href="#改进版—用随机值获得确定性标志位" class="headerlink" title="改进版—用随机值获得确定性标志位"></a>改进版—用随机值获得确定性标志位</h3><blockquote>
 <p>通过某些隐蔽的手法，使得某个标志位有确定性的值，然后利用这个确定值，进行确定性条件跳转。</p>
 </blockquote>
 <p>利用某确定值，进行跳转。这个需要查询影响CF标志位等的操作符。 参考：<a href="http://abcdxyzk.github.io/blog/2012/12/20/assembly-cmd-flags/" target="_blank" rel="noopener">http://abcdxyzk.github.io/blog/2012/12/20/assembly-cmd-flags/</a></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	DWORD d;</span><br><span class="line">	__asm &#123;</span><br><span class="line">		mov d ,<span class="number">0x123</span></span><br><span class="line">		xor eax,d</span><br><span class="line">		cmp eax,d</span><br><span class="line">		jne Lable3</span><br><span class="line">		__emit <span class="number">0xc2</span></span><br><span class="line">            </span><br><span class="line">              <span class="comment">//mov d ,0x123</span></span><br><span class="line">		<span class="comment">//and eax,d</span></span><br><span class="line">		<span class="comment">//sub eax,d</span></span><br><span class="line">		<span class="comment">//jle Lable3</span></span><br><span class="line">		<span class="comment">//__emit 0xc2</span></span><br><span class="line">	&#125;</span><br><span class="line">Lable3:</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Hello World!\n"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/assets/2021-08-16-花指令学习/image-20210816163021204.png" alt="image-20210816163021204"></p>
+<p><img src="/assets/blog/2021-08-16-花指令学习/image-20210816163021204.png" alt="image-20210816163021204"></p>
 <p>效果不错。</p>
-<p><img src="/assets/2021-08-16-花指令学习/image-20210816163136637.png" alt="image-20210816163136637"></p>
+<p><img src="/assets/blog/2021-08-16-花指令学习/image-20210816163136637.png" alt="image-20210816163136637"></p>
 <p>ida阵亡。</p>
-<p><img src="/assets/2021-08-16-花指令学习/image-20210816163220837.png" alt="image-20210816163220837"></p>
+<p><img src="/assets/blog/2021-08-16-花指令学习/image-20210816163220837.png" alt="image-20210816163220837"></p>
 <h3 id="利用API返回确定值"><a href="#利用API返回确定值" class="headerlink" title="利用API返回确定值"></a>利用API返回确定值</h3><blockquote>
 <p>大部分API函数的返回值是不确定的，只要有方法使得API返回确定值，那么后面接续的条件跳转，就是等价的。比如说CreateFile返回文件句柄，句柄可能是任意值且有不确定性，然而我们可以使得函数CreateFile返回值是确定的。<br>1)令CreateFile返回错误码，比如故意向CreateFile传入错误参数，还可以使用类似inc esp，使得堆栈不4字节对齐，即使传入正确参数，也会返回错误码。</p>
 <p>2)由于句柄值实际上是句柄表索引，所以CreatFile返回的正确句柄值都是4的倍数，我们把句柄值取4的模，得0是一定的。</p>
@@ -542,11 +542,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IDA</a>
+                <a href="javascript:void(0)" class="js-tag color2">DuiLib</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DuiLib</a>
+                <a href="javascript:void(0)" class="js-tag color4">IDA</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -562,11 +562,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">arm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">gdb</a>
+                <a href="javascript:void(0)" class="js-tag color3">实验</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -578,11 +574,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">实验</a>
+                <a href="javascript:void(0)" class="js-tag color4">arm</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">VirtualKD</a>
+                <a href="javascript:void(0)" class="js-tag color4">gdb</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -594,11 +590,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Autohotkey</a>
+                <a href="javascript:void(0)" class="js-tag color5">VirtualKD</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">密码学</a>
+                <a href="javascript:void(0)" class="js-tag color1">Autohotkey</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -606,7 +602,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">勒索病毒</a>
+                <a href="javascript:void(0)" class="js-tag color4">密码学</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -615,6 +611,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">C#</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">勒索病毒</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -627,6 +627,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">异常处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">IA-32e</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -647,10 +651,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">混淆</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">IA-32e</a>
               </li>
             
             <div class="clearfix"></div>
