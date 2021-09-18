@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="偽のブログ">
 <meta property="og:description" content="https://space.bilibili.com/37877654/channel/detail?cid=89742&amp;amp;ctype=0 IA-32e模式:内核64位,用户64或32位强制平坦段,不支持任务切换Legacy模式:内核32位,用户32位支持非平坦段,任务切换,虚拟8086,实模式等">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://blog.noobwei.top/assets/blog/2021-07-27-IA-32eNote/image-20210723165053977.png">
+<meta property="og:image" content="http://blog.noobwei.top/assets/blog/2021-07-27-IA-32eNote/image-20210918155523741.png">
 <meta property="og:image" content="http://blog.noobwei.top/assets/blog/2021-07-27-IA-32eNote/image-20210723181527784.png">
 <meta property="og:image" content="http://blog.noobwei.top/assets/blog/2021-07-27-IA-32eNote/image-20210723182115958.png">
 <meta property="og:image" content="http://blog.noobwei.top/assets/blog/2021-07-27-IA-32eNote/image-20210723182706160.png">
@@ -38,7 +38,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="IA-32e模式笔记">
 <meta name="twitter:description" content="https://space.bilibili.com/37877654/channel/detail?cid=89742&amp;amp;ctype=0 IA-32e模式:内核64位,用户64或32位强制平坦段,不支持任务切换Legacy模式:内核32位,用户32位支持非平坦段,任务切换,虚拟8086,实模式等">
-<meta name="twitter:image" content="http://blog.noobwei.top/assets/blog/2021-07-27-IA-32eNote/image-20210723165053977.png">
+<meta name="twitter:image" content="http://blog.noobwei.top/assets/blog/2021-07-27-IA-32eNote/image-20210918155523741.png">
   
     <link rel="alternative" href="/atom.xml" title="偽のブログ" type="application/atom+xml">
   
@@ -307,7 +307,7 @@
 <li>当L为1时,D只能为0，使用64位寻址。尝试使用D的位置则会产生General Protection Exception (#GP)。</li>
 </ol>
 <p>Type的第一位，0为data段，1为code段。四位一起看就是小于0n8就是data段，大于7就是code段。</p>
-<p><img src="/assets/blog/2021-07-27-IA-32eNote/image-20210723165053977.png" alt="image-20210723165053977"></p>
+<p><img src="/assets/blog/2021-07-27-IA-32eNote/image-20210918155523741.png" alt="image-20210918155523741"></p>
 <p>64位系统中使用强制平坦模式，段描述符有32位的0环，3环code段和数据段，有64位的code段，没有64bit的数据段。(GDT 全局描述符表)</p>
 <p>数据段描述符，代码段描述符使用64位描述符。</p>
 <p>TSS段扩展到128位。</p>
@@ -754,18 +754,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Blog</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IDA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DuiLib</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">字符集</a>
               </li>
              
@@ -775,6 +763,22 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Unicode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DuiLib</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">IDA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">断点</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">调试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -790,14 +794,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">断点</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">调试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">arm</a>
               </li>
              
@@ -810,10 +806,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">实验</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">宏代码</a>
               </li>
              
@@ -822,19 +814,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Blog</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">实验</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Autohotkey</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">VC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">密码学</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">勒索病毒</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -846,19 +838,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">VC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">勒索病毒</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">yara</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">蜜罐</a>
+                <a href="javascript:void(0)" class="js-tag color2">IA-32e</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">异常处理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">IA-32e</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -883,6 +879,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">驱动</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">蜜罐</a>
               </li>
              
               <li class="article-tag-list-item">
