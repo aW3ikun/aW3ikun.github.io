@@ -25,10 +25,10 @@
 <meta property="og:image" content="http://blog.noobwei.top/assets/blog/2021-08-09_SMAP_SMEP_PAGING_KPTI_CFG/image-20210804185412657.png">
 <meta property="og:image" content="http://blog.noobwei.top/assets/blog/2021-08-09_SMAP_SMEP_PAGING_KPTI_CFG/image-20210804204527485.png">
 <meta property="og:image" content="http://blog.noobwei.top/assets/blog/2021-08-09_SMAP_SMEP_PAGING_KPTI_CFG/image-20210805175207356.png">
-<meta property="og:image" content="http://blog.noobwei.top/image-20210809003433751.png">
-<meta property="og:image" content="http://blog.noobwei.top/image-20210809004937656.png">
-<meta property="og:image" content="http://blog.noobwei.top/image-20210809010208416.png">
-<meta property="og:image" content="http://blog.noobwei.top/image-20210809020259989.png">
+<meta property="og:image" content="http://blog.noobwei.top/assets/blog/2021-08-09_SMAP_SMEP_PAGING_KPTI_CFG/image-20210809003433751.png">
+<meta property="og:image" content="http://blog.noobwei.top/assets/blog/2021-08-09_SMAP_SMEP_PAGING_KPTI_CFG/image-20210809004937656.png">
+<meta property="og:image" content="http://blog.noobwei.top/assets/blog/2021-08-09_SMAP_SMEP_PAGING_KPTI_CFG/image-20210809010208416.png">
+<meta property="og:image" content="http://blog.noobwei.top/assets/blog/2021-08-09_SMAP_SMEP_PAGING_KPTI_CFG/image-20210809020259989.png">
 <meta property="og:image" content="http://blog.noobwei.top/assets/blog/2021-08-09_SMAP_SMEP_PAGING_KPTI_CFG/image-20210809175847152.png">
 <meta property="og:image" content="http://blog.noobwei.top/assets/blog/2021-08-09_SMAP_SMEP_PAGING_KPTI_CFG/image-20210809175823839.png">
 <meta property="og:updated_time" content="2021-08-08T16:00:00.000Z">
@@ -269,12 +269,12 @@
 <li>从自建终端门提升权限后，获取cr3.与windbg中的cr3做比较。</li>
 </ol>
 <p>使用程序内部获取的到cr3与windbg看到的cr3不一致</p>
-<p><img src="/image-20210809003433751.png" alt="image-20210809003433751"></p>
+<p><img src="/assets/blog/2021-08-09_SMAP_SMEP_PAGING_KPTI_CFG/image-20210809003433751.png" alt="image-20210809003433751"></p>
 <p>通过KPROCESS结构也可以看到DirectoryTableBase（r0)和UserDirectoryTableBaser（r3）。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">kd&gt; dt _kprocess ffffd68ea0bed480</span><br><span class="line">nt!_KPROCESS</span><br><span class="line">   +0x028 DirectoryTableBase : 0x2de0c002</span><br><span class="line">   +0x280 UserDirectoryTableBase : 0x44b0b001</span><br><span class="line"></span><br><span class="line">二者指向的地址一致，但是属性不同。</span><br></pre></td></tr></table></figure>
-<p><img src="/image-20210809004937656.png" alt="image-20210809004937656"></p>
+<p><img src="/assets/blog/2021-08-09_SMAP_SMEP_PAGING_KPTI_CFG/image-20210809004937656.png" alt="image-20210809004937656"></p>
 <p>内存空间权限分隔如下：</p>
-<p><img src="/image-20210809010208416.png" alt="image-20210809010208416"> </p>
+<p><img src="/assets/blog/2021-08-09_SMAP_SMEP_PAGING_KPTI_CFG/image-20210809010208416.png" alt="image-20210809010208416"> </p>
 <p><code>r cr3</code>显示的是内核层cr3，而程序中打印的是用户层使用的cr3。当我们的程序进入内核是是需要切换cr3的，以保证影射了足够的内核空间代码如.text段。不切换的话只能再KVASCODE中执行。</p>
 <p>手动转换地址，也可得知user cr3无法访问ntoskrnl的.text段。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">kd&gt; !process 0 0 forwin10.exe</span><br><span class="line">PROCESS ffffd68ea12f2080</span><br><span class="line">    SessionId: 1  Cid: 04d4    Peb: 003f0000  ParentCid: 0ca0</span><br><span class="line">    DirBase: 6d8b2002  ObjectTable: ffff950635085240  HandleCount:  49.</span><br><span class="line">    Image: ForWin10.exe</span><br><span class="line">    </span><br><span class="line">kd&gt; dt _kprocess  ffffd68ea12f2080</span><br><span class="line">nt!_KPROCESS</span><br><span class="line">   +0x028 DirectoryTableBase : 0x6d8b2002</span><br><span class="line">   +0x280 UserDirectoryTableBase : 0x75831001</span><br><span class="line">   </span><br><span class="line">kd&gt; dt _kpcr fffff8034b6b9000</span><br><span class="line">nt!_KPCR</span><br><span class="line">   +0x180 Prcb             : _KPRCB</span><br><span class="line">kd&gt; dx -id 0,0,ffffd68e9ba8a380 -r1 (*((ntkrnlmp!_KPRCB *)0xfffff8034b6b9180))</span><br><span class="line">(*((ntkrnlmp!_KPRCB *)0xfffff8034b6b9180))                 [Type: _KPRCB]</span><br><span class="line">    [+0x6e80] KernelDirectoryTableBase : 0x80000000001ad002 [Type: unsigned __int64]</span><br><span class="line">    </span><br><span class="line">kd&gt; u FFFFF8034C87BAC0</span><br><span class="line">nt!KiSystemCall64:</span><br><span class="line">fffff803`4c87bac0 0f01f8          swapgs</span><br><span class="line">fffff803`4c87bac3 654889242510000000 mov   qword ptr gs:[10h],rsp</span><br><span class="line">fffff803`4c87bacc 65488b2425a8010000 mov   rsp,qword ptr gs:[1A8h]</span><br><span class="line"></span><br><span class="line">kd&gt; !vtop 0x6d8b2000  FFFFF8034C87BAC0</span><br><span class="line">Amd64VtoP: Virt fffff8034c87bac0, pagedir 000000006d8b2000</span><br><span class="line">Amd64VtoP: PML4E 000000006d8b2f80</span><br><span class="line">Amd64VtoP: PDPE 0000000000e08068</span><br><span class="line">Amd64VtoP: PDE 0000000000e09320</span><br><span class="line">Amd64VtoP: PTE 0000000000e153d8</span><br><span class="line">Amd64VtoP: Mapped phys 0000000002e70ac0</span><br><span class="line">Virtual address fffff8034c87bac0 translates to physical address 2e70ac0.</span><br><span class="line"></span><br><span class="line">kd&gt; !vtop 1ad000 FFFFF8034C87BAC0</span><br><span class="line">Amd64VtoP: Virt fffff8034c87bac0, pagedir 00000000001ad000</span><br><span class="line">Amd64VtoP: PML4E 00000000001adf80</span><br><span class="line">Amd64VtoP: PDPE 0000000000e08068</span><br><span class="line">Amd64VtoP: PDE 0000000000e09320</span><br><span class="line">Amd64VtoP: PTE 0000000000e153d8</span><br><span class="line">Amd64VtoP: Mapped phys 0000000002e70ac0</span><br><span class="line">Virtual address fffff8034c87bac0 translates to physical address 2e70ac0.</span><br></pre></td></tr></table></figure>
@@ -286,7 +286,7 @@
 <p>猜测与如何进入内核的方式有关。</p>
 <h3 id="分析KiBreakpointTrapShadow"><a href="#分析KiBreakpointTrapShadow" class="headerlink" title="分析KiBreakpointTrapShadow"></a>分析KiBreakpointTrapShadow</h3><p>int 3中断是从用户层到内核层，参考意义较大。</p>
 <p>开启KPTI后，默认使用KiBreakpointTrapShadow，进行cr3切换和内核栈切换。</p>
-<p><img src="/image-20210809020259989.png" alt></p>
+<p><img src="/assets/blog/2021-08-09_SMAP_SMEP_PAGING_KPTI_CFG/image-20210809020259989.png" alt></p>
 <p>win10中使用切换栈到_KPCR.IdtBase+4200h，使用这个内存空间<strong>暂时</strong>保存（中转）这些寄存器的值，然后切换栈之后，内核线程再读取这些数值后存储。</p>
 <p>而不像xp时直接压在当前的栈上进行存储。</p>
 <h2 id="CFG"><a href="#CFG" class="headerlink" title="CFG"></a>CFG</h2><h3 id="guard-dispatch-icall"><a href="#guard-dispatch-icall" class="headerlink" title="_guard_dispatch_icall"></a>_guard_dispatch_icall</h3><p>如果正常执行可以看作为<code>call rax</code>.</p>
@@ -581,6 +581,14 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">IDA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DuiLib</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">字符集</a>
               </li>
              
@@ -593,31 +601,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DuiLib</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IDA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">植物大战僵尸</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">arm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">gdb</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">复习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -629,7 +613,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">实验</a>
+                <a href="javascript:void(0)" class="js-tag color3">复习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -637,7 +625,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Autohotkey</a>
+                <a href="javascript:void(0)" class="js-tag color4">arm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">gdb</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -649,7 +641,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">VC</a>
+                <a href="javascript:void(0)" class="js-tag color1">Autohotkey</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">实验</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -658,6 +654,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">勒索病毒</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">VC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -673,14 +673,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">蜜罐</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">异常处理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">内核机制</a>
               </li>
              
@@ -693,10 +685,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">IA-32e</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">花指令</a>
               </li>
              
@@ -705,7 +693,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">异常处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">驱动</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">蜜罐</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">IA-32e</a>
               </li>
              
               <li class="article-tag-list-item">
