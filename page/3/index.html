@@ -145,6 +145,106 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-2020-01-15-xRat木马分析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/01/15/2020-01-15-xRat木马分析/">xRat远控木马分析</a>
+    </h1>
+  
+
+        
+        <a href="/2020/01/15/2020-01-15-xRat木马分析/" class="archive-article-date">
+  	<time datetime="2020-01-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="0x01-样本信息"><a href="#0x01-样本信息" class="headerlink" title="0x01 样本信息"></a>0x01 样本信息</h1><ul>
+<li><p>样本名称: b3ebd2b0ac287940648975bcad2458543679748a15949f246a745c5db926a18d</p>
+</li>
+<li><p>样本大小:  252,416 字节</p>
+</li>
+<li><p>家族: xRat</p>
+</li>
+<li><p>MD5:  2b82375303c9e02ae15b0dd6e2bd0cb1</p>
+</li>
+<li><p>SHA-1: d5dbab5cca2a370dffb7225aecbc3cf65</p>
+</li>
+<li><p>SHA-256: b3ebd2b0ac287940648975bcad2458543679748a15949f246a745c5db926a18d</p>
+</li>
+<li><p>idb与样本地址:  <a href="https://github.com/Xuwei98/malware-analysis-idb/tree/master/Trojan/2020-01-15-xrat" target="_blank" rel="noopener">github</a></p></li></ul>
+        
+          <a class="article-more-a" href="/2020/01/15/2020-01-15-xRat木马分析/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">木马</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">C#</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/样本分析//" class="article-tag-list-link color5">样本分析</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-2019-11-28-DeathRansom勒索病毒预警" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1025,104 +1125,6 @@
 
 
   
-    <article id="post-2019-04-01-VC线程注入失败" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/01/2019-04-01-VC线程注入失败/">VC：执行远程线程注入的代码段导致目标进程崩溃</a>
-    </h1>
-  
-
-        
-        <a href="/2019/04/01/2019-04-01-VC线程注入失败/" class="archive-article-date">
-  	<time datetime="2019-03-31T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>今天使用植物大战僵尸练习线程注入调用call的时候,一直处于崩溃状态,,后来查阅了教程博客,下面有人指出了问题所在 在此引用下老哥的博客文章.</p>
-<p><a href="https://blog.csdn.net/kk20078733/article/details/5530884" target="_blank" rel="noopener">原文地址</a></p>
-<blockquote>
-<p>以前也曾多次提到远程线程注入导致进程崩溃的现象。</p>
-<p>此次崩溃不同于前几次。</p>
-<p>之前，采用的是dll注入的方式，注入后，由于同一个dll文件在不同的进程中映射的基地址不同，导致远程线程函数的入口地址不同，以至崩溃，这种情况，多数是本进程采用静态链接加载待远程注入的dll文件，而其他进程则动态加载该dll文件，两次加载将在内存中产生两个dll实例。</p>
-<p>此次，需要向远程进程注入代码段，远程线程函数入口地址正确。测试时，为了方便，特地增加了一个消息框MessageBox，远程线程函数仅仅调用这个弹出消息框的函数，然后退出。结果，消息框正常弹出，但是，当点击确定退出消息框后，目标进程立即崩溃。原因不明。</p>
-<p>200807210756注：</p>
-<p>实在不知道问题出哪儿了，于是就想看看注入的VC代码对应的反汇编代码，这时，忽然想到一点，即：我都是在Debug模式下执行的，这可能会有问题。</p>
-<p>进一步思考。Debug版本和Release版本最大的不同在于，每次调用一个函数后，Debug版本会进行堆栈检测。而目标进程显然是处于release模式，此时，如果注入的是Debug版本的代码，那么，调用函数之后，会有一句检测堆栈的机器指令，这很可能就是进程崩溃的原因所在。</p>
-<p>于是，改为release环境测试，一切正常！OK！</p>
-<p>(我用控制台程序实现时没有问题，用MFC程序实现就有问题，因此发现以上内容，将Debug版改为Release版就没问题了)</p>
-<p>另附上远程注入的主要代码段，供参考，有问题望指教！！！</p>
-<p>作者：kk20078733<br>来源：CSDN<br>原文：<a href="https://blog.csdn.net/kk20078733/article/details/5530884" target="_blank" rel="noopener">https://blog.csdn.net/kk20078733/article/details/5530884</a> </p>
-</blockquote>
-<p>Debug版会使用一个检查堆栈平衡的函数_checkesp..</p>
-<p>详细的在小黄书中有讲到.现在记得不是很清楚.</p>
-<p>有机会的话会写上来.</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">植物大战僵尸</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/错误整理//" class="article-tag-list-link color5">错误整理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
@@ -1237,6 +1239,26 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Blog</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">IDA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DuiLib</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">断点</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">调试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">字符集</a>
               </li>
              
@@ -1249,15 +1271,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DuiLib</a>
+                <a href="javascript:void(0)" class="js-tag color3">复习</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">植物大战僵尸</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IDA</a>
+                <a href="javascript:void(0)" class="js-tag color3">基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1269,35 +1287,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">断点</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">调试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">复习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基础</a>
+                <a href="javascript:void(0)" class="js-tag color2">植物大战僵尸</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">实验</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Blog</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">VirtualKD</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Autohotkey</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1309,7 +1303,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">VC</a>
+                <a href="javascript:void(0)" class="js-tag color5">VirtualKD</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Autohotkey</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1317,7 +1315,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">勒索病毒</a>
+                <a href="javascript:void(0)" class="js-tag color3">VC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1329,11 +1327,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">勒索病毒</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">yara</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">驱动</a>
+                <a href="javascript:void(0)" class="js-tag color5">异常处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1341,7 +1343,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">异常处理</a>
+                <a href="javascript:void(0)" class="js-tag color2">IA-32e</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1350,10 +1352,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">混淆</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">IA-32e</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1369,7 +1367,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">驱动</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">SSDT</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Sysinternals</a>
               </li>
              
               <li class="article-tag-list-item">

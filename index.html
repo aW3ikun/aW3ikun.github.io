@@ -145,6 +145,110 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-2021-10-28-SysMon与Powershell" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/10/28/2021-10-28-SysMon与Powershell/">SysMon与Powershell</a>
+    </h1>
+  
+
+        
+        <a href="/2021/10/28/2021-10-28-SysMon与Powershell/" class="archive-article-date">
+  	<time datetime="2021-10-27T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="SysMon与Powershell"><a href="#SysMon与Powershell" class="headerlink" title="SysMon与Powershell"></a>SysMon与Powershell</h1><blockquote>
+<p><a href="https://www.socinvestigation.com/threat-hunting-using-sysmon-advanced-log-analysis-for-windows/" target="_blank" rel="noopener">https://www.socinvestigation.com/threat-hunting-using-sysmon-advanced-log-analysis-for-windows/</a></p>
+</blockquote>
+<blockquote>
+<p><a href="https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon" target="_blank" rel="noopener">https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon</a></p>
+</blockquote>
+<p>通过引用的文章进行相关学习。</p>
+<h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><p>Windows 10.0.19043</p>
+<p>PowerShell 7.1.3</p>
+<h3 id="SysMon作用"><a href="#SysMon作用" class="headerlink" title="SysMon作用"></a>SysMon作用</h3><p>监控进程所有活动</p>
+<ol>
+<li>进程创建（完整命令行和hash)</li>
+<li>进程终止</li>
+<li>网络连接</li>
+<li>驱动程序/DLL加载</li>
+<li>文件创建时间戳改变</li>
+<li>远程线程创建</li>
+<li>磁盘写入</li>
+<li>内存访问</li>
+</ol>
+<h3 id="SysMon简单原理"><a href="#SysMon简单原理" class="headerlink" title="SysMon简单原理"></a>SysMon简单原理</h3><h4 id="SysMon-exe"><a href="#SysMon-exe" class="headerlink" title="SysMon.exe"></a>SysMon.exe</h4><p>通过自身释放驱动文件，进行释放拷贝注册驱动运行。</p>
+<p>获取到IRP的数据后，写入到日志中。</p>
+        
+          <a class="article-more-a" href="/2021/10/28/2021-10-28-SysMon与Powershell/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Sysinternals</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Sysinternals//" class="article-tag-list-link color3">Sysinternals</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-2021-10-03-idapython解密字符串" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -973,90 +1077,6 @@
 
 
   
-    <article id="post-2021-07-27-IA32e模式笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/27/2021-07-27-IA32e模式笔记/">IA-32e模式笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2021/07/27/2021-07-27-IA32e模式笔记/" class="archive-article-date">
-  	<time datetime="2021-07-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://space.bilibili.com/37877654/channel/detail?cid=89742&amp;ctype=0" target="_blank" rel="noopener">https://space.bilibili.com/37877654/channel/detail?cid=89742&amp;ctype=0</a></p>
-<p>IA-32e模式:内核64位,用户64或32位<br>强制平坦段,不支持任务切换<br>Legacy模式:内核32位,用户32位<br>支持非平坦段,任务切换,虚拟8086,实模式等</p>
-        
-          <a class="article-more-a" href="/2021/07/27/2021-07-27-IA32e模式笔记/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">IA-32e</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/windows内核//" class="article-tag-list-link color5">windows内核</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1171,6 +1191,26 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Blog</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">IDA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DuiLib</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">断点</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">调试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">字符集</a>
               </li>
              
@@ -1183,15 +1223,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DuiLib</a>
+                <a href="javascript:void(0)" class="js-tag color3">复习</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">植物大战僵尸</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IDA</a>
+                <a href="javascript:void(0)" class="js-tag color3">基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1203,35 +1239,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">断点</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">调试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">复习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基础</a>
+                <a href="javascript:void(0)" class="js-tag color2">植物大战僵尸</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">实验</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Blog</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">VirtualKD</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Autohotkey</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1243,7 +1255,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">VC</a>
+                <a href="javascript:void(0)" class="js-tag color5">VirtualKD</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Autohotkey</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1251,7 +1267,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">勒索病毒</a>
+                <a href="javascript:void(0)" class="js-tag color3">VC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1263,11 +1279,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">勒索病毒</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">yara</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">驱动</a>
+                <a href="javascript:void(0)" class="js-tag color5">异常处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1275,7 +1295,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">异常处理</a>
+                <a href="javascript:void(0)" class="js-tag color2">IA-32e</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1284,10 +1304,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">混淆</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">IA-32e</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1303,7 +1319,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">驱动</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">SSDT</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Sysinternals</a>
               </li>
              
               <li class="article-tag-list-item">
