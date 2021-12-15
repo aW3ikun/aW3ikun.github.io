@@ -145,6 +145,119 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-2019-05-24-arm环境gdb调试" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/24/2019-05-24-arm环境gdb调试/">arm环境搭建-gdb调试</a>
+    </h1>
+  
+
+        
+        <a href="/2019/05/24/2019-05-24-arm环境gdb调试/" class="archive-article-date">
+  	<time datetime="2019-05-24T05:33:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p> 最近想学习一下arm指令集,恰好手边有一台多余的二手机.从MIUI刷成原生安卓终于能正常<code>adb push</code>了.</p>
+<p>大多数的环境配置与调试是根据这篇文章<a href="http://www.tasfa.cn/index.php/2016/06/01/android-re-gdb/" target="_blank" rel="noopener">Android逆向系列之动态调试(五)–gdb调试</a>进行学习的.</p>
+<h4 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h4><p>在这里我做一点补充和效率的提高.</p>
+<ol>
+<li><p>ndk的压缩包从这里<a href="https://developer.android.com/ndk/downloads?hl=zh-CN" target="_blank" rel="noopener">下载</a>.</p>
+</li>
+<li><p>我的压缩包解压后的文件名为<code>android-ndk-r19c</code></p>
+<p>我是小米4的手机.</p>
+</li>
+<li><p>所以使用的gdbserver在<code>\android-ndk-r19c\prebuilt\android-arm\gdbserver</code></p>
+<p>使用的调试编译的可执行文件如as.exe和ld.exe在<code>\android-ndk-r19c\toolchains\arm-linux-androideabi-4.9\prebuilt\windows-x86_64\arm-linux-androideabi\bin</code></p>
+<p>gdb.exe在<code>F:\android_ndk\android-ndk-r19c\prebuilt\windows-x86_64\bin</code></p>
+</li>
+<li><p>已经把gdb.exe添加进环境变量中.</p>
+<p>注意和gdb.exe同一个文件夹的python.exe,需要改名.不然会和自己的原来的python产生冲突.()</p>
+</li>
+<li><p>批处理</p>
+</li>
+</ol>
+<p>​    我把调试的文件一律放在了/data/local/tmp/arm_p/中</p>
+<p>​    然后这是自认为提高效率的东西.</p>
+<p>这是文件树</p>
+<p>​    <img src="https://i.loli.net/2019/05/24/5ce80487b3f5f27607.png" alt></p>
+<p>以下是代码.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">:: gdbserver.bat</span><br><span class="line"></span><br><span class="line">adb push pra/%1 /data/<span class="built_in">local</span>/tmp/arm_p</span><br><span class="line">adb shell chmod 777 /data/<span class="built_in">local</span>/tmp/arm_p/%1</span><br><span class="line">adb shell gdbserver :23946 /data/<span class="built_in">local</span>/tmp/arm_p/%1</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">:: start_gdb.bat</span><br><span class="line"></span><br><span class="line">adb forward tcp:23946 tcp:23946</span><br><span class="line">gdb -x gdb_script</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">:: gdb_script</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> disassemble-next on</span><br><span class="line"><span class="built_in">set</span> step-mode on</span><br><span class="line">target remote 127.0.0.1:23946</span><br></pre></td></tr></table></figure>
+<p>gdbserver.bat  上传文件,启动服务监听</p>
+<p>start_gdb.bat  反汇编,单步调试</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">arm</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">gdb</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/工具//" class="article-tag-list-link color3">工具</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-2019-04-07-断点原理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -966,10 +1079,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IDA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Blog</a>
               </li>
              
@@ -986,10 +1095,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DuiLib</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">复习</a>
               </li>
              
@@ -998,7 +1103,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">植物大战僵尸</a>
+                <a href="javascript:void(0)" class="js-tag color4">IDA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DuiLib</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1007,6 +1116,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">gdb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">植物大战僵尸</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1026,10 +1139,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Autohotkey</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">宏代码</a>
               </li>
              
@@ -1038,15 +1147,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">VC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">密码学</a>
+                <a href="javascript:void(0)" class="js-tag color1">Autohotkey</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">勒索病毒</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">VC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1055,6 +1164,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">C#</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">密码学</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1074,18 +1187,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">驱动</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">过滤驱动</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SSDT</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">内核机制</a>
               </li>
              
@@ -1098,15 +1199,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">IDAPython</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Sysinternals</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">类继承</a>
+                <a href="javascript:void(0)" class="js-tag color3">驱动</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1115,6 +1208,30 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">混淆</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">过滤驱动</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SSDT</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Sysinternals</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">IDAPython</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">类继承</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Windbg</a>
               </li>
             
             <div class="clearfix"></div>
