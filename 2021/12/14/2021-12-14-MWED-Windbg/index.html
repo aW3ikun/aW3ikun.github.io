@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://blog.noobwei.top">
   <title>0x1 Modern_Windows_Exploit_Development_Windbg | 偽のブログ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="0x0 Environmentrepository Vmware Workstation 16 Pro 16.1.2 Win7 x64 sp1 Windbg Preview 0x1 Windbgrefer to other’s blog that  《Setting up kernel debugging using WinDbg and VMware》。  Setting symbol File">
+  <meta name="description" content="0x0 EnvironmentVmware Workstation 16 Pro 16.1.2 Win7 x64 sp1 Windbg Preview 0x1 Windbgrefer to other’s blog that  《Setting up kernel debugging using WinDbg and VMware》。  Setting symbol File Path Windb">
 <meta name="keywords" content="Windbg">
 <meta property="og:type" content="article">
 <meta property="og:title" content="0x1 Modern_Windows_Exploit_Development_Windbg">
 <meta property="og:url" content="http://blog.noobwei.top/2021/12/14/2021-12-14-MWED-Windbg/index.html">
 <meta property="og:site_name" content="偽のブログ">
-<meta property="og:description" content="0x0 Environmentrepository Vmware Workstation 16 Pro 16.1.2 Win7 x64 sp1 Windbg Preview 0x1 Windbgrefer to other’s blog that  《Setting up kernel debugging using WinDbg and VMware》。  Setting symbol File">
+<meta property="og:description" content="0x0 EnvironmentVmware Workstation 16 Pro 16.1.2 Win7 x64 sp1 Windbg Preview 0x1 Windbgrefer to other’s blog that  《Setting up kernel debugging using WinDbg and VMware》。  Setting symbol File Path Windb">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2021-12-13T16:00:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="0x1 Modern_Windows_Exploit_Development_Windbg">
-<meta name="twitter:description" content="0x0 Environmentrepository Vmware Workstation 16 Pro 16.1.2 Win7 x64 sp1 Windbg Preview 0x1 Windbgrefer to other’s blog that  《Setting up kernel debugging using WinDbg and VMware》。  Setting symbol File">
+<meta name="twitter:description" content="0x0 EnvironmentVmware Workstation 16 Pro 16.1.2 Win7 x64 sp1 Windbg Preview 0x1 Windbgrefer to other’s blog that  《Setting up kernel debugging using WinDbg and VMware》。  Setting symbol File Path Windb">
   
     <link rel="alternative" href="/atom.xml" title="偽のブログ" type="application/atom+xml">
   
@@ -165,8 +165,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="0x0-Environment"><a href="#0x0-Environment" class="headerlink" title="0x0 Environment"></a>0x0 Environment</h2><p><a href="https://github.com/aW3ikun/Modern_Windows_Exploit_Development" target="_blank" rel="noopener">repository</a></p>
-<p><code>Vmware Workstation 16 Pro 16.1.2</code></p>
+        <h2 id="0x0-Environment"><a href="#0x0-Environment" class="headerlink" title="0x0 Environment"></a>0x0 Environment</h2><p><code>Vmware Workstation 16 Pro 16.1.2</code></p>
 <p><code>Win7 x64 sp1</code></p>
 <p><code>Windbg Preview</code></p>
 <h2 id="0x1-Windbg"><a href="#0x1-Windbg" class="headerlink" title="0x1 Windbg"></a>0x1 Windbg</h2><p>refer to other’s blog that  《<a href="https://voidsec.com/windows-kernel-debugging-exploitation/" target="_blank" rel="noopener">Setting up kernel debugging using WinDbg and VMware</a>》。</p>
@@ -343,7 +342,7 @@
 <td>resume the execution (go)</td>
 </tr>
 <tr>
-<td>g <code location></code></td>
+<td>g \<code location\></code></td>
 <td>run until a certain address <br>‘g’ puts a one-time software breakpoint.</td>
 </tr>
 </tbody>
@@ -589,31 +588,31 @@
 <td>Displays the list of memory pages and info.</td>
 </tr>
 <tr>
-<td>!lmi <module name></module></td>
+<td>!lmi \<module name></module></td>
 <td>Displays information for the specified module.</td>
 </tr>
 <tr>
-<td>!slist <address></address></td>
+<td>!slist \<address></address></td>
 <td></td>
 </tr>
 <tr>
-<td>[ <symbol> [<offset>] ]</offset></symbol></td>
+<td>[ \&lt;symbol> [\&lt;offset>] ]</td>
 <td>Displays a singly-linked list, where: <br><address> is the address of the pointer to the first node of the list <br><br><br><symbol> is the name of the structure of the nodes <br><br><offset> is the offset of the field “next” within the node</offset></symbol></address></td>
 </tr>
 <tr>
-<td>dt <struct name></struct></td>
+<td>dt \<struct name></struct></td>
 <td>Displays the structure <struct name>.</struct></td>
 </tr>
 <tr>
-<td>dt <struct name> <field></field></struct></td>
-<td>Displays the field <field> of the structure <struct name>.</struct></field></td>
+<td>dt \<struct name> \<field></field></struct></td>
+<td>Displays the field <field> of the structure \<struct name>.</struct></field></td>
 </tr>
 <tr>
-<td>dt <struct name> <address></address></struct></td>
-<td>Displays the data at <address> as a structure of type <struct name> (you needsymbols for <struct name>).</struct></struct></address></td>
+<td>dt \<struct name> \&lt;address></struct></td>
+<td>Displays the data at \<address> as a structure of type \<struct name\> (you needsymbols for \<struct name\>).</struct></struct></address></td>
 </tr>
 <tr>
-<td>dg <first selector>[<last selector>]</last></first></td>
+<td>dg \<first selector>[\<last selector\>]</last></first></td>
 <td>Displays the segment descriptor for the specified selectors.</td>
 </tr>
 </tbody>
@@ -886,10 +885,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Blog</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">字符集</a>
               </li>
              
@@ -902,6 +897,18 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Blog</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DuiLib</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">IDA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">复习</a>
               </li>
              
@@ -910,27 +917,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IDA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DuiLib</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">arm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">gdb</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">植物大战僵尸</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">实验</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -942,7 +929,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">arm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">gdb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">实验</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">VirtualKD</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Autohotkey</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -954,15 +957,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Autohotkey</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">勒索病毒</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">VC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">密码学</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -974,7 +973,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">密码学</a>
+                <a href="javascript:void(0)" class="js-tag color5">勒索病毒</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -982,15 +981,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">蜜罐</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">异常处理</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">IA-32e</a>
+                <a href="javascript:void(0)" class="js-tag color3">蜜罐</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1006,15 +1001,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">驱动</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">花指令</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">混淆</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">IA-32e</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">驱动</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1026,19 +1025,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Sysinternals</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">IDAPython</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">类继承</a>
+                <a href="javascript:void(0)" class="js-tag color2">Windbg</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Windbg</a>
+                <a href="javascript:void(0)" class="js-tag color3">Sysinternals</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">类继承</a>
               </li>
             
             <div class="clearfix"></div>
