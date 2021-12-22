@@ -145,6 +145,94 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-2021-09-03-驱动基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/09/03/2021-09-03-驱动基础/">Windows内核函数基础</a>
+    </h1>
+  
+
+        
+        <a href="/2021/09/03/2021-09-03-驱动基础/" class="archive-article-date">
+  	<time datetime="2021-09-02T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="代码地址"><a href="#代码地址" class="headerlink" title="代码地址"></a>代码地址</h2><p>配合<em>git</em> –no-pager 和 git checkout进行代码查看 </p>
+<p><a href="https://github.com/aW3ikun/Windows-Kernel-Driver-programming-practice" target="_blank" rel="noopener">https://github.com/aW3ikun/Windows-Kernel-Driver-programming-practice</a></p>
+<h3 id="常用初始化"><a href="#常用初始化" class="headerlink" title="常用初始化"></a>常用初始化</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">OBJECT_ATTRIBUTES obja = &#123; <span class="number">0</span> &#125;;</span><br><span class="line">InitializeObjectAttributes(&amp;obja, &amp;str, OBJ_CASE_INSENSITIVE | OBJ_KERNEL_HANDLE, <span class="literal">NULL</span>, <span class="literal">NULL</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h2><p>driver的PUNICODE_STRING指向注册表地址，注册表存储着服务的相关信息。</p>
+<p><img src="/assets/blog/2021-09-03-驱动基础/image-20210817163550400.png" alt="image-20210817163550400"></p>
+<p>如果pDriverObject-&gt;Unload没有对应的卸载函数，则不进行卸载，是一种保护措施。</p>
+        
+          <a class="article-more-a" href="/2021/09/03/2021-09-03-驱动基础/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">驱动</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/windows内核//" class="article-tag-list-link color5">windows内核</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-2021-08-16-花指令学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1003,108 +1091,6 @@
 
 
   
-    <article id="post-2020-02-17-njRat远控木马分析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/17/2020-02-17-njRat远控木马分析/">njRat远控木马分析</a>
-    </h1>
-  
-
-        
-        <a href="/2020/02/17/2020-02-17-njRat远控木马分析/" class="archive-article-date">
-  	<time datetime="2020-02-16T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="0x01-样本信息"><a href="#0x01-样本信息" class="headerlink" title="0x01 样本信息"></a>0x01 样本信息</h1><ul>
-<li><p>样本名称: 62c01f</p>
-</li>
-<li><p>样本大小:  1178394字节</p>
-</li>
-<li><p>家族: njRat</p>
-</li>
-<li><p>版本: 0.6.4</p>
-</li>
-<li><p>MD5:  62c01f1b2ac0a7bab6c3b50fd51e6a36</p>
-</li>
-<li><p>SHA-1: cfc301a04b9a4ffeb0dc4578c1998a4eb4754f7b</p>
-</li>
-<li><p>SHA-256: c46a631f0bc82d8c2d46e9d8634cc50242987fa7749cac097439298d1d0c1d6e</p>
-</li>
-<li><p>idb与样本地址:  <a href="https://github.com/Xuwei98/malware-analysis-idb/tree/master/Trojan/2020-02-17-njRat" target="_blank" rel="noopener">github</a></p></li></ul>
-        
-          <a class="article-more-a" href="/2020/02/17/2020-02-17-njRat远控木马分析/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">木马</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">C#</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/样本分析//" class="article-tag-list-link color5">样本分析</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1219,6 +1205,10 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Blog</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">字符集</a>
               </li>
              
@@ -1231,15 +1221,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Blog</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">DuiLib</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IDA</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1251,15 +1233,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">植物大战僵尸</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">断点</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">调试</a>
+                <a href="javascript:void(0)" class="js-tag color4">IDA</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1271,7 +1245,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">实验</a>
+                <a href="javascript:void(0)" class="js-tag color3">断点</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">调试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">植物大战僵尸</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1291,7 +1273,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">实验</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">VC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">勒索病毒</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1307,15 +1297,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">勒索病毒</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">yara</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">异常处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">IA-32e</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1343,15 +1333,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">IA-32e</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">驱动</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">过滤驱动</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1363,7 +1345,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Windbg</a>
+                <a href="javascript:void(0)" class="js-tag color5">过滤驱动</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1372,6 +1354,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">类继承</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Windbg</a>
               </li>
             
             <div class="clearfix"></div>
